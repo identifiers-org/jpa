@@ -10,7 +10,12 @@ import java.util.List;
  */
 public interface ResourceService {
 
+    /*
+    * Returns non obsolete resources for a given collection
+    */
     List<Resource> findNonObsoleteResources(Collection collection);
 
+    /*
+    * Returns a non obsolete resource for the given identifier eg: MIR:00100497*/
     Resource findNonObsoleteResource(String id);
 }

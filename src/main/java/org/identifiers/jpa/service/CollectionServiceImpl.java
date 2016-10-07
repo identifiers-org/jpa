@@ -30,6 +30,7 @@ public class CollectionServiceImpl implements CollectionService{
         return collectionRepository.findById(id);
     }
 
+    @Override
     public List<Collection> findCollections(String name){
         return collectionRepository.findByObsoleteAndNameContaining(0,name);
     }

@@ -16,8 +16,6 @@ import java.util.List;
 public class PrefixServiceImpl implements PrefixService{
 
     private PrefixRepository prefixRepository;
-    private static String URN = "URN";
-    private static String MIRIAM_URN = "urn:miriam:";
 
     public PrefixServiceImpl(PrefixRepository prefixRepository) {
         this.prefixRepository = prefixRepository;
@@ -34,11 +32,18 @@ public class PrefixServiceImpl implements PrefixService{
         return findPrefix(collection).getUri().substring(11);
     }
 
-    public String findIdentifiersUrl(String collection, ConfigProperties configProperties){
-        return configProperties.getHttp()+collection;
+    @Override
+    public String findIdentifiersUrl(String prefix, ConfigProperties configProperties){
+        return configProperties.getHttp()+prefix;
     }
 
+    @Override
     public Prefix findPrefix(String prefix){
-        return prefixRepository.findByUriAndDeprecatedAndUriType(MIRIAM_URN+prefix,0,URN);
+        return prefixRepository.findByUriAndDeprecatedAndUriType(getMiriamUrn(prefix),0,URN);
+    }
+
+    @Override
+    public String getMiriamUrn(String prefix) {
+        return MIRIAM_URN+prefix;
     }
 }

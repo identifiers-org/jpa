@@ -11,11 +11,35 @@ import java.util.List;
  */
 public interface PrefixService {
 
+    String URN = "URN";
+
+    String MIRIAM_URN = "urn:miriam:";
+
+    /*
+    * Returns the mapped prefix object given a collection
+    */
     Prefix findPrefix(Collection collection);
 
+    /*
+    * Returns the mapped prefix string given a collection.
+    * Prefix is stored as a urn eg: urn:miriam:pubmed.
+    * This method removes miriam urn and returns pubmed
+    */
     String findPrefixString(Collection collection);
 
-    String findIdentifiersUrl(String collection, ConfigProperties configProperties);
+    /*
+    * Returns identifiers.org url to a given collection prefix.
+    * eg https://identifiers.org/pubmed
+    */
+    String findIdentifiersUrl(String prefix, ConfigProperties configProperties);
 
+    /*
+    * Returns Prefix for a given prefix string. eg: pubmed
+    */
     Prefix findPrefix(String prefix);
+
+    /*
+    * Returns miriam urn for a given prefix string eg: urn:miriam:pubmed
+    */
+    String getMiriamUrn(String prefix);
 }

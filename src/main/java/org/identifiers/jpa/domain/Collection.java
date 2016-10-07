@@ -1,6 +1,5 @@
 package org.identifiers.jpa.domain;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -22,6 +21,8 @@ public class Collection implements Serializable{
 
     private String name;
     private String pattern;
+
+    @Lob
     private String definition;
 
     @Column(name="date_creation")
@@ -31,6 +32,8 @@ public class Collection implements Serializable{
     private Date dateModif;
 
     private int obsolete;
+
+    @Lob
     private String obsolete_comment;
     private String replacement;
     private int restriction;
