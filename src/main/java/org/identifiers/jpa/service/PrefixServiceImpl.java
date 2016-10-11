@@ -29,7 +29,8 @@ public class PrefixServiceImpl implements PrefixService{
 
     @Override
     public String findPrefixString(Collection collection){
-        return findPrefix(collection).getUri().substring(11);
+        Prefix prefix = findPrefix(collection);
+        return prefix!=null ? prefix.getUri().substring(11) : null;
     }
 
     @Override
