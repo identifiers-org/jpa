@@ -12,7 +12,6 @@ import java.util.List;
  * Created by sarala on 28/09/2016.
  */
 @Component("prefixService")
-@Transactional
 public class PrefixServiceImpl implements PrefixService{
 
     private PrefixRepository prefixRepository;

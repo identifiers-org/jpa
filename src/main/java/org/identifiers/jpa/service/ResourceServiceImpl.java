@@ -11,7 +11,6 @@ import java.util.List;
  * Created by sarala on 30/09/2016.
  */
 @Component("resourceService")
-@Transactional
 public class ResourceServiceImpl implements ResourceService {
 
     private ResourceRepository resourceRepository;

@@ -11,7 +11,6 @@ import java.util.List;
  */
 
 @Component("collectionService")
-@Transactional
 public class CollectionServiceImpl implements CollectionService{
 
     private final CollectionRepository collectionRepository;

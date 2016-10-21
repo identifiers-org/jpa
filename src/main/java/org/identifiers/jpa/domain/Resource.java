@@ -43,7 +43,7 @@ public class Resource implements Serializable {
     @Column(name="convertprefix")
     private String convertPrefix;
 
-    @Column(name="resource_prefix")
+    @Column(name="prefix")
     private String resourcePrefix;
 
     protected Resource(){}
