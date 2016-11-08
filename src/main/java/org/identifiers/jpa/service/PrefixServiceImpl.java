@@ -3,6 +3,7 @@ package org.identifiers.jpa.service;
 import org.identifiers.jpa.ConfigProperties;
 import org.identifiers.jpa.domain.Collection;
 import org.identifiers.jpa.domain.Prefix;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,5 +46,10 @@ public class PrefixServiceImpl implements PrefixService{
     @Override
     public String getMiriamUrn(String prefix) {
         return MIRIAM_URN+prefix;
+    }
+
+    @Override
+    public List<Prefix> findByUriContaining(String prefix) {
+        return prefixRepository.findByDeprecatedAndUriTypeAndUriContaining (0, URN, getMiriamUrn(prefix));
     }
 }

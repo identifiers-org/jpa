@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by sarala on 26/09/2016.
@@ -20,7 +21,7 @@ public class CollectionServiceImpl implements CollectionService{
     }
 
     @Override
-    public List<Collection> findNonObsolete() {
+    public Set<Collection> findNonObsolete() {
         return collectionRepository.findByObsolete(0);
     }
 
@@ -30,8 +31,15 @@ public class CollectionServiceImpl implements CollectionService{
     }
 
     @Override
-    public List<Collection> findCollections(String name){
+    public Set<Collection> findCollections(String name){
         return collectionRepository.findByObsoleteAndNameContaining(0,name);
     }
+
+    @Override
+    public Set<Collection> findByNameAndPrefixContaining(String name){
+        return collectionRepository.findByNameAndPrefixContaining(0, name, 0, PrefixService.URN);
+
+    }
+
 
 }

@@ -3,6 +3,7 @@ package org.identifiers.jpa.service;
 import org.identifiers.jpa.ConfigProperties;
 import org.identifiers.jpa.domain.Collection;
 import org.identifiers.jpa.domain.Prefix;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -42,4 +43,7 @@ public interface PrefixService {
     * Returns miriam urn for a given prefix string eg: urn:miriam:pubmed
     */
     String getMiriamUrn(String prefix);
+
+    List<Prefix> findByUriContaining(String prefix);
+
 }

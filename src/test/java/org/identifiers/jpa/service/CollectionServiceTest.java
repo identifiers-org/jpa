@@ -35,7 +35,7 @@ public class CollectionServiceTest {
     */
     @Test
     public void findCollections() throws Exception {
-        assertThat(collectionService.findCollections("Pub").get(0)).hasFieldOrPropertyWithValue("name","PubMed");
+        assertThat(collectionService.findCollections("Pub").iterator().next()).hasFieldOrPropertyWithValue("name","PubMed");
     }
 
 }

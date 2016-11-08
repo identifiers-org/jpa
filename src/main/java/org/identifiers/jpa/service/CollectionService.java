@@ -3,6 +3,7 @@ package org.identifiers.jpa.service;
 import org.identifiers.jpa.domain.Collection;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by sarala on 26/09/2016.
@@ -12,7 +13,7 @@ public interface CollectionService {
     /*
     * Returns all nonobsolete collections ie.(obsolete flag set to '0')
     */
-    List<Collection> findNonObsolete();
+    Set<Collection> findNonObsolete();
 
     /*
     * Returns a Collection by identifier eg. MIR:00000005
@@ -22,5 +23,12 @@ public interface CollectionService {
     /*
     * Returns a nonobsolete list of Collections that matches the given name eg: pubmed
     */
-    List<Collection> findCollections(String name);
+    Set<Collection> findCollections(String name);
+
+
+    /*
+    * Returns a list of collections that matches the given name or prefix
+    */
+    Set<Collection> findByNameAndPrefixContaining(String name);
+
 }

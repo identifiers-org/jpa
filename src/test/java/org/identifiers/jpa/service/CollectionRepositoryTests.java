@@ -9,6 +9,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,7 +27,7 @@ public class CollectionRepositoryTests {
 
     @Test
     public void findAll() throws Exception{
-        List<Collection> collections = repository.findAll();
+        Set<Collection> collections = repository.findAll();
         assertThat(collections).hasSize(5);
     }
 
@@ -45,7 +46,12 @@ public class CollectionRepositoryTests {
     * */
     @Test
     public void findByObsoleteAndNameContaining() throws Exception{
-        assertThat(repository.findByObsoleteAndNameContaining(0,"Pub").get(0)).hasFieldOrPropertyWithValue("name","PubMed");
+        assertThat(repository.findByObsoleteAndNameContaining(0,"Pub").iterator().next()).hasFieldOrPropertyWithValue("name","PubMed");
+    }
+
+    @Test
+    public void findByNameAndPrefixContaining()  throws Exception{
+        assertThat(repository.findByNameAndPrefixContaining(0,"pubmed",0,"URN").iterator().next()).hasFieldOrPropertyWithValue("name","PubMed");
     }
 
 }

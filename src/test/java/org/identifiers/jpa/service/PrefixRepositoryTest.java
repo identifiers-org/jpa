@@ -50,4 +50,9 @@ public class PrefixRepositoryTest {
         assertThat(prefix).hasFieldOrPropertyWithValue("uri",prefixService.getMiriamUrn("pubmed"));
     }
 
+    @Test
+    public void findByDeprecatedAndUriTypeAndUriContaining() throws Exception{
+        assertThat(prefixRepository.findByDeprecatedAndUriTypeAndUriContaining(0,PrefixService.URN,"pubmed").get(0)).hasFieldOrPropertyWithValue("uri","urn:miriam:pubmed");
+    }
+
 }
