@@ -28,3 +28,7 @@ INSERT INTO mir_uri (uri_id, uri, uri_type, deprecated, ptr_datatype, convertPre
 INSERT INTO mir_uri (uri_id, uri, uri_type, deprecated, ptr_datatype, convertPrefix) VALUES (2608, 'urn:miriam:pubmed', 'URN', 0, 'MIR:00000015', 'urn:miriam:pubmed:');
 INSERT INTO mir_uri (uri_id, uri, uri_type, deprecated, ptr_datatype, convertPrefix) VALUES (2609, 'http://linkedlifedata.com/resource/pubmed/id/', 'URL', 2, 'MIR:00000015', 'http://linkedlifedata.com/resource/pubmed/id/');
 INSERT INTO mir_uri (uri_id, uri, uri_type, deprecated, ptr_datatype, convertPrefix) VALUES (2610, 'http://www.pubmed.gov/', 'URL', 1, 'MIR:00000015', 'http://www.pubmed.gov/');
+
+/* synonyms */
+INSERT INTO mir_synonym (synonym_id, name, ptr_datatype) VALUES (991, 'NEWT', 'MIR:00000006');
+INSERT INTO mir_synonym (synonym_id, name, ptr_datatype) VALUES (992, 'NCBI taxonomy', 'MIR:00000006');

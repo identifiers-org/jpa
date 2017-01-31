@@ -2,6 +2,7 @@ package org.identifiers.jpa;
 
 import org.identifiers.jpa.service.CollectionRepository;
 import org.identifiers.jpa.service.CollectionService;
+import org.identifiers.jpa.service.SynonymRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -31,8 +32,9 @@ public class JpaApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(ConfigProperties properties, CollectionRepository collectionRepository) {
+    public CommandLineRunner demo(ConfigProperties properties, CollectionRepository collectionRepository, SynonymRepository synonymRepository) {
         return (args) -> {
+            System.out.println(synonymRepository.findByCollection(collectionRepository.findById("MIR:00000006")).size());
             System.out.println(collectionRepository.findByNameAndPrefixContaining(0,"pubmed",0,"URN").size());
         };
     }

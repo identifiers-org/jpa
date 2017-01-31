@@ -47,6 +47,9 @@ public class Collection implements Serializable{
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "collection")
     private Set<Prefix> prefixes;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "collection")
+    private Set<Synonym> synonyms;
+
     protected Collection() {
     }
 
@@ -144,5 +147,13 @@ public class Collection implements Serializable{
 
     public void setResources(Set<Resource> resources) {
         this.resources = resources;
+    }
+
+    public Set<Synonym> getSynonyms() {
+        return synonyms;
+    }
+
+    public void setSynonyms(Set<Synonym> synonyms) {
+        this.synonyms = synonyms;
     }
 }
