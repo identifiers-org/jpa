@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -52,6 +53,11 @@ public class CollectionRepositoryTests {
     @Test
     public void findByNameAndPrefixContaining()  throws Exception{
         assertThat(repository.findByNameAndPrefixContaining(0,"pubmed",0,"URN").iterator().next()).hasFieldOrPropertyWithValue("name","PubMed");
+    }
+
+    @Test
+    public void findByNameAndPrefixAndResourceContaining()  throws Exception{
+        assertThat(repository.findByNameAndPrefixAndResourceContaining(0,"Europe PMC",0,"URN").iterator().next()).hasFieldOrPropertyWithValue("name","PubMed");
     }
 
 }

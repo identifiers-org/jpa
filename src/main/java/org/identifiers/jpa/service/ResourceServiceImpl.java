@@ -28,4 +28,16 @@ public class ResourceServiceImpl implements ResourceService {
     public Resource findNonObsoleteResource(String id) {
         return resourceRepository.findByIdAndObsolete(id,0);
     }
+
+    @Override
+    public List<Resource> findAll() {
+        return resourceRepository.findAll();
+    }
+
+    @Override
+    public Integer countByNonObsolete() {
+        return resourceRepository.countByObsolete(0);
+    }
+
+
 }

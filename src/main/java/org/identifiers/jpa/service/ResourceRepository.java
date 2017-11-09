@@ -19,4 +19,6 @@ public interface ResourceRepository extends CrudRepository<Resource, Long> {
 
     Resource findByIdAndObsolete(String id, int obsolete);
 
+    Integer countByObsolete(int value);
+
 }

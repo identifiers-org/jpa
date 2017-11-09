@@ -38,7 +38,21 @@ public class CollectionServiceImpl implements CollectionService{
     @Override
     public Set<Collection> findByNameAndPrefixContaining(String name){
         return collectionRepository.findByNameAndPrefixContaining(0, name, 0, PrefixService.URN);
+    }
 
+    @Override
+    public Set<Collection> findByNameAndPrefixAndResourceContaining(String name) {
+        return collectionRepository.findByNameAndPrefixAndResourceContaining(0, name, 0, PrefixService.URN);
+    }
+
+    @Override
+    public Integer countByNonObsolete() {
+        return collectionRepository.countByObsolete(0);
+    }
+
+    @Override
+    public Collection findLastModifiedDate() {
+        return collectionRepository.findFirstByObsoleteOrderByModifiedDesc(0);
     }
 
 

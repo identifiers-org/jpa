@@ -46,6 +46,9 @@ public class Resource implements Serializable {
     @Column(name="prefix")
     private String resourcePrefix;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "resource")
+    private Statistics statistics;
+
     protected Resource(){}
 
     public String getId() {
@@ -158,5 +161,13 @@ public class Resource implements Serializable {
 
     public void setResourcePrefix(String resourcePrefix) {
         this.resourcePrefix = resourcePrefix;
+    }
+
+    public Statistics getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(Statistics statistics) {
+        this.statistics = statistics;
     }
 }

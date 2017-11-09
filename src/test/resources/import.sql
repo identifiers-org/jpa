@@ -32,3 +32,6 @@ INSERT INTO mir_uri (uri_id, uri, uri_type, deprecated, ptr_datatype, convertPre
 /* synonyms */
 INSERT INTO mir_synonym (synonym_id, name, ptr_datatype) VALUES (991, 'NEWT', 'MIR:00000006');
 INSERT INTO mir_synonym (synonym_id, name, ptr_datatype) VALUES (992, 'NCBI taxonomy', 'MIR:00000006');
+
+/* keywords */
+INSERT INTO mir_url_check (id, resource_id, keyword) VALUES (23, 'MIR:00100023', 'Minimum information requested in the annotation of biochemical models');

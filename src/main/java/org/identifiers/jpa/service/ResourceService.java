@@ -16,6 +16,15 @@ public interface ResourceService {
     List<Resource> findNonObsoleteResources(Collection collection);
 
     /*
-    * Returns a non obsolete resource for the given identifier eg: MIR:00100497*/
+    * Returns a non obsolete resource for the given identifier eg: MIR:00100497
+    */
     Resource findNonObsoleteResource(String id);
+
+    /*
+    * Find all resources
+    */
+    List<Resource> findAll();
+
+
+    Integer countByNonObsolete();
 }

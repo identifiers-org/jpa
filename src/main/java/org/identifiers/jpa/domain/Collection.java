@@ -29,7 +29,7 @@ public class Collection implements Serializable{
     private Date dateCreatd;
 
     @Column(name="date_modif")
-    private Date dateModif;
+    private Date modified;
 
     private int obsolete;
 
@@ -93,12 +93,12 @@ public class Collection implements Serializable{
         this.dateCreatd = dateCreatd;
     }
 
-    public Date getDateModif() {
-        return dateModif;
+    public Date getModified() {
+        return modified;
     }
 
-    public void setDateModif(Date dateModif) {
-        this.dateModif = dateModif;
+    public void setModified(Date modified) {
+        this.modified = modified;
     }
 
     public int getObsolete() {

@@ -31,4 +31,13 @@ public interface CollectionService {
     */
     Set<Collection> findByNameAndPrefixContaining(String name);
 
+    /*
+    * Returns a list of collections that matches the given name or prefix or resource name
+    */
+    Set<Collection> findByNameAndPrefixAndResourceContaining(String name);
+
+    Integer countByNonObsolete();
+
+    Collection findLastModifiedDate();
+
 }
